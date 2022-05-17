@@ -14,19 +14,27 @@ import {
 } from 'react-router-dom'
 
 class App extends Component {
-  render() {
+  constructor(props){
+    super(props)
+    this.state = {
+      apartment: []
+    }
+  }
+  
+    render() {
     return (
       
         <Router>
           <Header {...this.props} />
           <Switch>
-            <Route exact path="/" component={Home} />
-            <Route path="/apartmentindex" component={ApartmentIndex} />
+            <Route exact path="/" render={(props) => <Home apartment={this.state.apartment} />} /> 
+            <Route path="/apartmentindex" render={(props) => <ApartmentIndex apartment={this.state.apartment} />}  />
             <Route path="/apartmentshow" component={ApartmentShow} />
             <Route path="/apartmentnew" component={ApartmentNew} />
             <Route path="/apartmentedit" component={ApartmentEdit} />
             <Route component={NotFound}/>
           </Switch>
+          <Footer {...this.props} />
         </Router>
         
         
