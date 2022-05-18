@@ -1,9 +1,25 @@
 import React, { Component } from 'react'
+import { Card, CardTitle, Col } from 'reactstrap'
 
-export default class ApartmentIndex extends Component {
+ class ApartmentIndex extends Component {
   render() {
     return (
-      <h3>ApartmentIndex</h3>
+      <>
+      <h3>Our Fine list of Excellent Apartments!</h3>
+        <br />
+          <Col sm="6">
+            {this.props.apartments.map(apartment => {
+              return(
+                <Card body key={apartment.id}>
+                  <CardTitle>
+                    <h4>{apartment.city}</h4>
+                  </CardTitle>
+                </Card>
+              )
+            })}
+          </Col>
+      </>
     )
   }
 }
+export default ApartmentIndex
