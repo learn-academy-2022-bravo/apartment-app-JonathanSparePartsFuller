@@ -21,7 +21,21 @@ class App extends Component {
       apartments: apartments
     }
   }
+  // Backend Stuff
+
+  // componentDidMount(){
+  //   this.readApartment()
+  // }
+
+  // readApartment = () => {
+  //   fetch("http://localhost:3000/apartments")
+  //   .then(response => response.json())
+  //   .then(apartmentsArray => this.setState({apartments: apartmentsArray}))
+  //   .catch(errors => console.log("Apartment read errors:", errors))
+  // }
   
+  // Will get to this when frontend is stable
+
     render() {
     return (
       
