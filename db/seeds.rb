@@ -38,10 +38,6 @@ apartments = [
       }
 ]
 
-apartments.each do |each_apartment|
-    Apartment.create each_apartment
-    puts "creating apartment #{each_apartment}"
-end
 
 user = [
     
@@ -50,13 +46,13 @@ user = [
         encrypted_password: 'secret-Password'
         reset_password_token: 'please_work'
     }
-
+    
     {
         email: 'janedoe@test.com'
         encrypted_password: 'super-secret-Password'
         reset_password_token: 'pretty-please_work'
     }
-
+    
     {
         email: 'joshdone@test.com'
         encrypted_password: 'ultra-secret-Password'
@@ -64,7 +60,15 @@ user = [
     }
 ]
 
-users.each do |each_user|
-    User.create each_user
-    puts "creating user #{each_user}"
-  end
+apartments.each do |each_apartment|
+    user.apartments.create each_apartment
+  puts "creating apartment #{each_apartment}"
+end
+
+
+
+
+
+
+
+
