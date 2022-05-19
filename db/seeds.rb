@@ -1,3 +1,5 @@
+user = User.where(email: 'test@test.test').first_or_create(password: '12345678', password_confirmation: '12345678')
+
 apartments = [
     {
         street: '5000 Block Ave',
@@ -38,7 +40,6 @@ apartments = [
       }
 ]
 
-user = User.where(email: 'test@test.test').first_or_create(password: '12345678', password_confirmation: '12345678')
 
 
 apartments.each do |each_apartment|
