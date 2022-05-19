@@ -38,27 +38,8 @@ apartments = [
       }
 ]
 
+user = User.where(email: 'test@test.test').first_or_create(password: '12345678', password_confirmation: '12345678')
 
-user = [
-    
-    {
-        email: 'joesmith@test.com'
-        encrypted_password: 'secret-Password'
-        reset_password_token: 'please_work'
-    }
-    
-    {
-        email: 'janedoe@test.com'
-        encrypted_password: 'super-secret-Password'
-        reset_password_token: 'pretty-please_work'
-    }
-    
-    {
-        email: 'joshdone@test.com'
-        encrypted_password: 'ultra-secret-Password'
-        reset_password_token: 'please_work_please'
-    }
-]
 
 apartments.each do |each_apartment|
     user.apartments.create each_apartment
