@@ -7,6 +7,7 @@ import ApartmentShow from './pages/ApartmentShow'
 import ApartmentNew from './pages/ApartmentNew'
 import ApartmentEdit from './pages/ApartmentEdit'
 import NotFound from './pages/NotFound'
+import apartments from './mockApartments'
 import {
   BrowserRouter as Router,
   Route,
@@ -17,10 +18,24 @@ class App extends Component {
   constructor(props){
     super(props)
     this.state = {
-      apartment: []
+      apartments: []
     }
   }
+  // Backend Stuff
+
+  componentDidMount(){
+    this.readApartment()
+  }
+
+  readApartment = () => {
+    fetch("http://localhost:3000/apartments")
+    .then(response => response.json())
+    .then(apartmentsArray => this.setState({apartments: apartmentsArray}))
+    .catch(errors => console.log("Apartment read errors:", errors))
+  }
   
+  // Backend Stuff
+
     render() {
     return (
       
@@ -28,7 +43,7 @@ class App extends Component {
           <Header {...this.props} />
           <Switch>
             <Route exact path="/" render={(props) => <Home apartment={this.state.apartment} />} /> 
-            <Route path="/apartmentindex" render={(props) => <ApartmentIndex apartment={this.state.apartment} />}  />
+            <Route path="/apartmentindex" render={(props) => <ApartmentIndex apartments={this.state.apartments} />}  />
             <Route path="/apartmentshow" component={ApartmentShow} />
             <Route path="/apartmentnew" component={ApartmentNew} />
             <Route path="/apartmentedit" component={ApartmentEdit} />
