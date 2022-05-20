@@ -14,9 +14,9 @@ import { NavLink } from 'react-router-dom';
                 <Card body key={apartment.id}>
                   <CardTitle>
                     <h4>{apartment.state}</h4>
-                    <NavLink to={`/apartmentshow/${apartment.id}`}>
-                  {apartment.city}
-                </NavLink>
+                      <NavLink to={`/apartmentshow/${apartment.id}`}>
+                        {apartment.city}
+                      </NavLink>
                   </CardTitle>
                 </Card>
               )
