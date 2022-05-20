@@ -7,7 +7,6 @@ import ApartmentShow from './pages/ApartmentShow'
 import ApartmentNew from './pages/ApartmentNew'
 import ApartmentEdit from './pages/ApartmentEdit'
 import NotFound from './pages/NotFound'
-import apartments from './mockApartments'
 import {
   BrowserRouter as Router,
   Route,
@@ -44,7 +43,11 @@ class App extends Component {
           <Switch>
             <Route exact path="/" render={(props) => <Home apartment={this.state.apartment} />} /> 
             <Route path="/apartmentindex" render={(props) => <ApartmentIndex apartments={this.state.apartments} />}  />
-            <Route path="/apartmentshow" component={ApartmentShow} />
+            <Route path="/apartmentshow/:id" render={(props) => {
+              let id = props.match.params.id
+              let apartment = this.state.apartments.find(apartment => apartment.id === +id)
+              return <ApartmentShow apartment={apartment}/>
+            }} />
             <Route path="/apartmentnew" component={ApartmentNew} />
             <Route path="/apartmentedit" component={ApartmentEdit} />
             <Route component={NotFound}/>

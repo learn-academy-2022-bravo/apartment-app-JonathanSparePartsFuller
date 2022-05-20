@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Card, CardTitle, Col } from 'reactstrap'
+import { NavLink } from 'react-router-dom';
 
  class ApartmentIndex extends Component {
   render() {
@@ -12,7 +13,10 @@ import { Card, CardTitle, Col } from 'reactstrap'
               return(
                 <Card body key={apartment.id}>
                   <CardTitle>
-                    <h4>{apartment.city}</h4>
+                    <h4>{apartment.state}</h4>
+                      <NavLink to={`/apartmentshow/${apartment.id}`}>
+                        {apartment.city}
+                      </NavLink>
                   </CardTitle>
                 </Card>
               )
